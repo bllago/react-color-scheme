@@ -51,7 +51,7 @@
   "eslintConfig": {
     "extends": "./eslintrc.js"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": { "registry": "https://registry.npmjs.org" },
   "browserslist": {
     "production": [
       ">0.2%",
