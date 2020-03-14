@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "./node_modules/.bin/babel src --out-file index.js"
+    "build": "./node_modules/.bin/babel src --out-file index.js",
+    "prepare": "install-peers"
   },
   "repository": {
     "type": "git",
@@ -21,9 +22,9 @@
   "author": "Oleksiy Pastukhov",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.6.1",
-    "react-dom": "^16.6.3",
-    "deepmerge": "^4.2.2"
+    "deepmerge": "^4.2.2",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -44,6 +45,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.2.0",
+    "install-peers-cli": "^2.2.0",
     "prettier": "^1.18.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
@@ -51,7 +53,9 @@
   "eslintConfig": {
     "extends": "./eslintrc.js"
   },
-  "publishConfig": { "registry": "https://registry.npmjs.org" },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
