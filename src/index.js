@@ -2,14 +2,31 @@ import { useContext } from 'react'
 import React from 'react'
 import deepmerge from 'deepmerge'
 
-const defaultColorScheme = {
-  colors: {
-    primary: 'green'
+const createColorScheme = theme => {
+  const defaultColorScheme = {
+    colors: {
+      primary: 'green'
+    }
+  }
+
+  const ColorSchemeContext = React.createContext(theme)
+  const ColorSchemeProvider = ColorSchemeContext.Provider
+  const ColorSchemeConsumer = ColorSchemeContext.Consumer
+
+  const useTheme = localTheme => {
+    return deepmerge.all([
+      defaultColorScheme,
+      Object.assign({}, theme),
+      Object.assign({}, localTheme)
+    ])
+  }
+
+  return {
+    ColorSchemeContext,
+    ColorSchemeProvider,
+    ColorSchemeConsumer,
+    useTheme
   }
 }
 
-export const ColorSchemeContext = React.createContext()
-export const ColorSchemeProvider = ColorSchemeContext.Provider
-export const ColorSchemeConsumer = ColorSchemeContext.Consumer
-export const useTheme = () =>
-  deepmerge(defaultColorScheme, useContext(ColorSchemeContext))
+export default createColorScheme
